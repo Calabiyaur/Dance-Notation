@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckneisan35l5w"]
+
+[ext_resource type="Script" uid="uid://c7wu4gq27yeh5" path="res://DanceScene.gd" id="1_p62nt"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_p62nt"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_jxx7j"]
+events = [SubResource("InputEventKey_p62nt")]
+
+[node name="Dance" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p62nt")
+
+[node name="Header" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+shortcut = SubResource("Shortcut_jxx7j")
+text = " <- "
+
+[node name="Title" type="Label" parent="Header"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+text = "<Tanz>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Categories" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Figures" type="Button" parent="Categories"]
+layout_mode = 2
+text = "Figuren"
+
+[node name="Choreographies" type="Button" parent="Categories"]
+layout_mode = 2
+disabled = true
+text = "Choreographien"
