@@ -31,11 +31,38 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+disabled = true
 text = "bearbeiten"
 
-[node name="Steps" type="HFlowContainer" parent="."]
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Step" type="Control" parent="Steps"]
-custom_minimum_size = Vector2(100, 100)
+[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Steps" type="HFlowContainer" parent="VSplitContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Add" type="Button" parent="VSplitContainer/ScrollContainer/MarginContainer/Steps"]
+custom_minimum_size = Vector2(64, 260)
+layout_mode = 2
+text = "  +  "
+
+[node name="Details" type="VBoxContainer" parent="VSplitContainer"]
+visible = false
 layout_mode = 2

@@ -3,4 +3,4 @@ extends Resource
 
 
 @export var name: String
-@export var steps: Array[Step]
+@export var steps: Array[BiStep]
