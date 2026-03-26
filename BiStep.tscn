@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfi7lq1dwbacn"]
+[gd_scene format=3 uid="uid://dfi7lq1dwbacn"]
 
 [ext_resource type="Script" uid="uid://jngtqsjv6te2" path="res://BiStepScene.gd" id="1_d85q0"]
 [ext_resource type="PackedScene" uid="uid://b2oklcb2h5gq" path="res://Step.tscn" id="2_d8uvj"]
 
-[node name="Step" type="VBoxContainer"]
+[node name="Step" type="VBoxContainer" unique_id=1424937328]
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_d85q0")
 
-[node name="Lead" parent="." instance=ExtResource("2_d8uvj")]
+[node name="Lead" parent="." unique_id=1946197603 instance=ExtResource("2_d8uvj")]
 layout_mode = 2
+toggle_mode = true
 
-[node name="Follow" parent="." instance=ExtResource("2_d8uvj")]
+[node name="Follow" parent="." unique_id=2038188837 instance=ExtResource("2_d8uvj")]
 layout_mode = 2
+toggle_mode = true
