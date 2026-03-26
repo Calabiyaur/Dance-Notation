@@ -7,7 +7,10 @@ var dance_notation: DanceNotation
 
 
 func load() -> DanceNotation:
-	dance_notation = load(PATH)
+	if ResourceLoader.exists(PATH):
+		dance_notation = ResourceLoader.load(PATH)
+	if not dance_notation:
+		dance_notation = DanceNotation.new()
 	return dance_notation
 
 

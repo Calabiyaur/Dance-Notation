@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 
 var dance_notation: DanceNotation
@@ -6,20 +6,17 @@ var dance_notation: DanceNotation
 
 func _ready() -> void:
 	dance_notation = Data.load()
-	if dance_notation:
-		dance_notation.dances.sort_custom(func(a, b): return a.name < b.name)
-		for dance in dance_notation.dances:
-			add_dance_button(dance)
-	else:
-		dance_notation = DanceNotation.new()
+	dance_notation.dances.sort_custom(func(a, b): return a.name < b.name)
+	for dance in dance_notation.dances:
+		add_dance_button(dance)
 	
-	$Header/Add.pressed.connect(open_create_dance_dialog)
+	%Add.pressed.connect(open_create_dance_dialog)
 
 
 func add_dance_button(dance: Dance) -> Button:
 	var button = Button.new()
 	button.text = dance.name
-	$Dances.add_child(button)
+	%Dances.add_child(button)
 	button.pressed.connect(func():
 		SceneSwitcher.switch_to("res://Dance.tscn", func(scene): scene.set_dance(dance))
 	)

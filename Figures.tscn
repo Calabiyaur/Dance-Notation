@@ -1,34 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://c75l77ojy6jkl"]
+[gd_scene format=3 uid="uid://c75l77ojy6jkl"]
 
 [ext_resource type="Script" uid="uid://uno5x1bo4q4o" path="res://FiguresScene.gd" id="1_s54bi"]
 
-[node name="Figures" type="VBoxContainer"]
+[sub_resource type="InputEventKey" id="InputEventKey_s54bi"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_b4yc8"]
+events = [SubResource("InputEventKey_s54bi")]
+
+[node name="Figures" type="MarginContainer" unique_id=1345119068]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 script = ExtResource("1_s54bi")
 
-[node name="Header" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=22911497]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="Header"]
+[node name="Header" type="MarginContainer" parent="VBoxContainer" unique_id=1954858866]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/Header" unique_id=1404535749]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+shortcut = SubResource("Shortcut_b4yc8")
 text = " <- "
 
-[node name="Title" type="Label" parent="Header"]
+[node name="Title" type="Label" parent="VBoxContainer/Header" unique_id=1890957947]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 text = "<Tanz> - Figuren"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Add" type="Button" parent="Header"]
+[node name="Add" type="Button" parent="VBoxContainer/Header" unique_id=2111266765]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "  +  "
 
-[node name="Figures" type="VBoxContainer" parent="."]
+[node name="Figures" type="VBoxContainer" parent="VBoxContainer" unique_id=979236460]
+unique_name_in_owner = true
 layout_mode = 2

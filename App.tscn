@@ -1,29 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn4k3vr0klbir"]
+[gd_scene format=3 uid="uid://cn4k3vr0klbir"]
 
 [ext_resource type="Script" uid="uid://hkns3o3e7vms" path="res://AppScene.gd" id="1_j6dmo"]
 
-[node name="App" type="VBoxContainer"]
+[node name="App" type="MarginContainer" unique_id=1923743042]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 script = ExtResource("1_j6dmo")
 
-[node name="Header" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1584857479]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Header"]
+[node name="Header" type="MarginContainer" parent="VBoxContainer" unique_id=1176212518]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Header" unique_id=1842680447]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 text = "Tänze"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Add" type="Button" parent="Header"]
+[node name="Add" type="Button" parent="VBoxContainer/Header" unique_id=208588146]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "  +  "
 
-[node name="Dances" type="VBoxContainer" parent="."]
+[node name="Dances" type="VBoxContainer" parent="VBoxContainer" unique_id=1497781062]
+unique_name_in_owner = true
 layout_mode = 2

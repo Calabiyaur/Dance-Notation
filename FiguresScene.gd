@@ -1,15 +1,15 @@
-extends VBoxContainer
+extends MarginContainer
 
 
 var dance: Dance
 
 
 func _ready() -> void:
-	$Header/Back.pressed.connect(func():
+	%Back.pressed.connect(func():
 		SceneSwitcher.switch_to("res://Dance.tscn", func(scene): scene.set_dance(dance))
 	)
-	$Header/Title.text = dance.name + " - Figuren"
-	$Header/Add.pressed.connect(open_create_figure_dialog)
+	%Title.text = dance.name + " - Figuren"
+	%Add.pressed.connect(open_create_figure_dialog)
 	
 	dance.figures.sort_custom(func(a, b): return a.name < b.name)
 	for figure in dance.figures:
@@ -19,7 +19,7 @@ func _ready() -> void:
 func add_figure_button(figure: Figure) -> Button:
 	var button = Button.new()
 	button.text = figure.name
-	$Figures.add_child(button)
+	%Figures.add_child(button)
 	button.pressed.connect(func():
 		SceneSwitcher.switch_to("res://Figure.tscn", func(scene):
 			scene.set_dance(dance)

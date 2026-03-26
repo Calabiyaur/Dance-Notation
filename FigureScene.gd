@@ -6,10 +6,10 @@ var figure: Figure
 
 
 func _ready() -> void:
-	$Header/Back.pressed.connect(func():
+	%Back.pressed.connect(func():
 		SceneSwitcher.switch_to("res://Figures.tscn", func(scene): scene.set_dance(dance))
 	)
-	$Header/Title.text = dance.name + "\n" + figure.name
+	%Title.text = dance.name + "\n" + figure.name
 	%Steps/Add.pressed.connect(add_new_step)
 
 
