@@ -67,6 +67,20 @@ disabled = true
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
+[node name="UpperBodyLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=48627637]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Oberkörper"
+
+[node name="UpperBodyActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=580626805]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1662931872]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
 [node name="LeftFootLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=302079664]
 unique_name_in_owner = true
 layout_mode = 2
@@ -76,11 +90,11 @@ text = "Linker Fuß"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=732197314]
+[node name="MarginContainer5" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=732197314]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="LeftFootInput" parent="ScrollContainer/GridContainer/MarginContainer4" unique_id=595126082 instance=ExtResource("1_6w566")]
+[node name="LeftFootInput" parent="ScrollContainer/GridContainer/MarginContainer5" unique_id=595126082 instance=ExtResource("1_6w566")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -94,11 +108,25 @@ text = "Rechter Fuß"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer5" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1889545001]
+[node name="MarginContainer6" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1889545001]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="RightFootInput" parent="ScrollContainer/GridContainer/MarginContainer5" unique_id=1742654802 instance=ExtResource("1_6w566")]
+[node name="RightFootInput" parent="ScrollContainer/GridContainer/MarginContainer6" unique_id=1742654802 instance=ExtResource("1_6w566")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="BodyLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=648529163]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Körper"
+
+[node name="BodyActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=675508545]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+
+[node name="MarginContainer7" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=692725102]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
