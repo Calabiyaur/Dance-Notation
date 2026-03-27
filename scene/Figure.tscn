@@ -32,15 +32,15 @@ theme_override_constants/separation = 12
 
 [node name="Back" type="Button" parent="MarginContainer/Header" unique_id=1900875545]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 shortcut = SubResource("Shortcut_fnstt")
-text = " <- "
+text = "<-"
 
 [node name="Title" type="Label" parent="MarginContainer/Header" unique_id=1738971306]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "<Tanz>
@@ -49,6 +49,7 @@ vertical_alignment = 1
 
 [node name="Edit" type="Button" parent="MarginContainer/Header" unique_id=1182913553]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

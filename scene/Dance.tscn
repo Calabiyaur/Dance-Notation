@@ -29,10 +29,11 @@ layout_mode = 2
 
 [node name="Back" type="Button" parent="VBoxContainer/Header" unique_id=2014376745]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 shortcut = SubResource("Shortcut_jxx7j")
-text = " <- "
+text = "<-"
 
 [node name="Title" type="Label" parent="VBoxContainer/Header" unique_id=1999053441]
 unique_name_in_owner = true
@@ -47,10 +48,54 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Figures" type="Button" parent="VBoxContainer/Categories" unique_id=1281025468]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Figuren"
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Categories/Figures" unique_id=1865174364]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -15.5
+offset_right = 2.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 16
+
+[node name="FigureCount" type="Label" parent="VBoxContainer/Categories/Figures/MarginContainer" unique_id=1028195074]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+horizontal_alignment = 1
+
 [node name="Choreographies" type="Button" parent="VBoxContainer/Categories" unique_id=1743050525]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 disabled = true
 text = "Choreographien"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Categories/Choreographies" unique_id=1805150161]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -15.5
+offset_right = 2.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 16
+
+[node name="ChoreoCount" type="Label" parent="VBoxContainer/Categories/Choreographies/MarginContainer" unique_id=1018825305]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
