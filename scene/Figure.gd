@@ -13,7 +13,11 @@ func _ready() -> void:
 	)
 	%Title.text = dance.name + "\n" + figure.name
 	%Steps/Add.pressed.connect(add_new_step)
-	%Details.visible = false
+	%Details.data_changed.connect(func():
+		var step = step_button_group.get_pressed_button()
+		step.queue_redraw()
+		Data.save()
+	)
 	
 	step_button_group = ButtonGroup.new()
 	step_button_group.allow_unpress = true
@@ -24,18 +28,23 @@ func _ready() -> void:
 
 func add_step(bistep: BiStep):
 	var step = append_step()
-	step.step = bistep
+	step.get_lead().step = bistep.lead
+	step.get_follow().step = bistep.follow
 
 
 func add_new_step():
 	var step = append_step()
 	
-	step.step.lead.right_foot = Foot.new()
-	step.step.follow.left_foot = Foot.new()
+	var bistep = BiStep.new()
+	bistep.follow.left_foot = Foot.new()
+	bistep.lead.right_foot = Foot.new()
+	
+	step.get_lead().step = bistep.lead
+	step.get_follow().step = bistep.follow
 	
 	step.get_lead().button_pressed = true
 	
-	figure.steps.append(step.step)
+	figure.steps.append(bistep)
 	Data.save()
 
 
@@ -47,17 +56,9 @@ func append_step():
 	
 	for s: Button in [step.get_lead(), step.get_follow()]:
 		s.button_group = step_button_group
-		s.toggled.connect(func(value: bool): select(s.step if value else null))
+		s.toggled.connect(func(value: bool): %Details.set_step(s.step if value else null))
 	
 	return step
-
-
-func select(step: Step):
-	%Details.visible = true if step else false
-	if not step:
-		return
-	
-	
 
 
 func set_dance(dance: Dance):

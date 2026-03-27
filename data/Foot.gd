@@ -2,5 +2,5 @@ class_name Foot
 extends Resource
 
 
-@export var direction: float = 0
-@export var length: float = 1
+@export var direction: int = 0
+@export var length: int = 0
