@@ -4,50 +4,101 @@
 [ext_resource type="Script" uid="uid://cwswhl3n0nj2l" path="res://scene/StepDetails.gd" id="1_oji2g"]
 
 [node name="Details" type="MarginContainer" unique_id=793527702]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 script = ExtResource("1_oji2g")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1871212261]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=794955621]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1871212261]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 columns = 3
 
-[node name="LeftFootLabel" type="Label" parent="GridContainer" unique_id=302079664]
+[node name="HeadLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=1904195960]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kopf"
+
+[node name="HeadActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=287092563]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1407147187]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="LeftHandLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=381482209]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Linke Hand"
+
+[node name="LeftHandActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=1233304604]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1043448302]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="RightHandLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=651697559]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rechte Hand"
+
+[node name="RightHandActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=953477000]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1484726499]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="LeftFootLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=302079664]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Linker Fuß"
 
-[node name="LeftFootActive" type="CheckButton" parent="GridContainer" unique_id=1899114352]
+[node name="LeftFootActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=1899114352]
 unique_name_in_owner = true
 layout_mode = 2
-button_pressed = true
 
-[node name="MarginContainer" type="MarginContainer" parent="GridContainer" unique_id=732197314]
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=732197314]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="LeftFootInput" parent="GridContainer/MarginContainer" unique_id=1416200981 instance=ExtResource("1_6w566")]
+[node name="LeftFootInput" parent="ScrollContainer/GridContainer/MarginContainer4" unique_id=595126082 instance=ExtResource("1_6w566")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RightFootLabel" type="Label" parent="GridContainer" unique_id=2063358780]
+[node name="RightFootLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=2063358780]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Rechter Fuß"
 
-[node name="RightFootActive" type="CheckButton" parent="GridContainer" unique_id=492894939]
+[node name="RightFootActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=492894939]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="GridContainer" unique_id=1889545001]
+[node name="MarginContainer5" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1889545001]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="RightFootInput" parent="GridContainer/MarginContainer2" unique_id=1742654802 instance=ExtResource("1_6w566")]
+[node name="RightFootInput" parent="ScrollContainer/GridContainer/MarginContainer5" unique_id=1742654802 instance=ExtResource("1_6w566")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

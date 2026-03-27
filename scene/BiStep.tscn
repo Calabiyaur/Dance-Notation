@@ -6,6 +6,7 @@
 [node name="Step" type="VBoxContainer" unique_id=1424937328]
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_constants/separation = 2
 script = ExtResource("1_d85q0")
 
 [node name="Lead" parent="." unique_id=1946197603 instance=ExtResource("2_d8uvj")]
