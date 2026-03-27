@@ -17,6 +17,13 @@ func _draw() -> void:
 		draw_foot(step.left_foot, true)
 	if step.right_foot:
 		draw_foot(step.right_foot, false)
+	if not step.left_foot and not step.right_foot and not State.edit:
+		draw_pause()
+
+
+func draw_pause():
+	var rect = Rect2(center - SCALE / 2, SCALE)
+	draw_rect(rect, COLOR, false, LINE_WIDTH)
 
 
 func draw_foot(foot: Foot, flip: bool):

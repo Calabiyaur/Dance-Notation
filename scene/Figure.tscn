@@ -48,11 +48,12 @@ text = "<Tanz>
 vertical_alignment = 1
 
 [node name="Edit" type="Button" parent="MarginContainer/Header" unique_id=1182913553]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-disabled = true
-text = "bearbeiten"
+toggle_mode = true
+text = "Bearbeiten"
 
 [node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=1676987565]
 layout_mode = 2
@@ -77,6 +78,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 2
 theme_override_constants/h_separation = 1
 theme_override_constants/v_separation = 16
 

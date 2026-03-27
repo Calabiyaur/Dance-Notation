@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func set_step(step: Step):
 	self.step = step
-	visible = step != null
+	visible = step != null and State.edit
 	if not step:
 		return
 	
