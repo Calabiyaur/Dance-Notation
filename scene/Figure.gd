@@ -28,6 +28,7 @@ func _ready() -> void:
 
 func add_step(bistep: BiStep):
 	var step = append_step()
+	step.step = bistep
 	step.get_lead().step = bistep.lead
 	step.get_follow().step = bistep.follow
 
@@ -36,9 +37,10 @@ func add_new_step():
 	var step = append_step()
 	
 	var bistep = BiStep.new()
-	bistep.follow.left_foot = Foot.new()
-	bistep.lead.right_foot = Foot.new()
+	#bistep.follow.left_foot = Foot.new()
+	#bistep.lead.right_foot = Foot.new()
 	
+	step.step = bistep
 	step.get_lead().step = bistep.lead
 	step.get_follow().step = bistep.follow
 	
@@ -57,6 +59,12 @@ func append_step():
 	for s: Button in [step.get_lead(), step.get_follow()]:
 		s.button_group = step_button_group
 		s.toggled.connect(func(value: bool): %Details.set_step(s.step if value else null))
+	
+	step.delete_pressed.connect(func():
+		%Steps.remove_child(step)
+		figure.steps.erase(step.step)
+		Data.save()
+	)
 	
 	return step
 

@@ -17,15 +17,10 @@ func _ready() -> void:
 
 
 func add_figure_button(figure: Figure) -> Button:
-	var button = Button.new()
-	button.text = figure.name
+	var button = preload("res://scene/FigureButton.tscn").instantiate()
+	button.set_dance(dance)
+	button.set_figure(figure)
 	%Figures.add_child(button)
-	button.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Figure.tscn", func(scene):
-			scene.set_dance(dance)
-			scene.set_figure(figure)
-		)
-	)
 	return button
 
 

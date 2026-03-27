@@ -14,12 +14,9 @@ func _ready() -> void:
 
 
 func add_dance_button(dance: Dance) -> Button:
-	var button = Button.new()
-	button.text = dance.name
+	var button = preload("res://scene/DanceButton.tscn").instantiate()
+	button.set_dance(dance)
 	%Dances.add_child(button)
-	button.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
-	)
 	return button
 
 
