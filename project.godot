@@ -21,8 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Data="*res://Data.gd"
-SceneSwitcher="*res://SceneSwitcher.gd"
+SceneSwitcher="*res://common/SceneSwitcher.gd"
 
 [display]
 

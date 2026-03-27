@@ -6,7 +6,7 @@ var dance: Dance
 
 func _ready() -> void:
 	%Back.pressed.connect(func():
-		SceneSwitcher.switch_to("res://Dance.tscn", func(scene): scene.set_dance(dance))
+		SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
 	)
 	%Title.text = dance.name + " - Figuren"
 	%Add.pressed.connect(open_create_figure_dialog)
@@ -21,7 +21,7 @@ func add_figure_button(figure: Figure) -> Button:
 	button.text = figure.name
 	%Figures.add_child(button)
 	button.pressed.connect(func():
-		SceneSwitcher.switch_to("res://Figure.tscn", func(scene):
+		SceneSwitcher.switch_to("res://scene/Figure.tscn", func(scene):
 			scene.set_dance(dance)
 			scene.set_figure(figure)
 		)

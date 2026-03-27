@@ -1,13 +1,13 @@
 extends MarginContainer
 
 
-var dance_notation: DanceNotation
+var data: Data
 
 
 func _ready() -> void:
-	dance_notation = Data.load()
-	dance_notation.dances.sort_custom(func(a, b): return a.name < b.name)
-	for dance in dance_notation.dances:
+	data = Data.load()
+	data.dances.sort_custom(func(a, b): return a.name < b.name)
+	for dance in data.dances:
 		add_dance_button(dance)
 	
 	%Add.pressed.connect(open_create_dance_dialog)
@@ -18,7 +18,7 @@ func add_dance_button(dance: Dance) -> Button:
 	button.text = dance.name
 	%Dances.add_child(button)
 	button.pressed.connect(func():
-		SceneSwitcher.switch_to("res://Dance.tscn", func(scene): scene.set_dance(dance))
+		SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
 	)
 	return button
 
@@ -38,7 +38,7 @@ func open_create_dance_dialog():
 	dialog.confirmed.connect(func():
 		var dance = Dance.new()
 		dance.name = line.text
-		dance_notation.dances.append(dance)
+		data.dances.append(dance)
 		var button = add_dance_button(dance)
 		Data.save()
 		button.pressed.emit()

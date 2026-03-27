@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckneisan35l5w"]
 
-[ext_resource type="Script" uid="uid://c7wu4gq27yeh5" path="res://DanceScene.gd" id="1_p62nt"]
+[ext_resource type="Script" uid="uid://c7wu4gq27yeh5" path="res://scene/Dance.gd" id="1_p62nt"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_p62nt"]
 device = -1

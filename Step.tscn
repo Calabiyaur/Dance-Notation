@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2oklcb2h5gq"]
-
-[ext_resource type="Script" uid="uid://co01o4brrq73h" path="res://StepScene.gd" id="1_d85q0"]
-
-[node name="Lead" type="Button"]
-custom_minimum_size = Vector2(64, 128)
-script = ExtResource("1_d85q0")

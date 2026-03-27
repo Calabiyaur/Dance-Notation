@@ -5,10 +5,10 @@ var dance: Dance
 
 
 func _ready() -> void:
-	%Back.pressed.connect(func(): SceneSwitcher.switch_to("res://App.tscn"))
+	%Back.pressed.connect(func(): SceneSwitcher.switch_to("res://scene/App.tscn"))
 	%Title.text = dance.name
 	%Categories/Figures.pressed.connect(func():
-		SceneSwitcher.switch_to("res://Figures.tscn", func(scene): scene.set_dance(dance))
+		SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
 	)
 
 

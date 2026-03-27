@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cn4k3vr0klbir"]
 
-[ext_resource type="Script" uid="uid://hkns3o3e7vms" path="res://AppScene.gd" id="1_j6dmo"]
+[ext_resource type="Script" uid="uid://hkns3o3e7vms" path="res://scene/App.gd" id="1_j6dmo"]
 
 [node name="App" type="MarginContainer" unique_id=1923743042]
 anchors_preset = 15

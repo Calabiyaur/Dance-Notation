@@ -9,7 +9,7 @@ var step_button_group: ButtonGroup
 
 func _ready() -> void:
 	%Back.pressed.connect(func():
-		SceneSwitcher.switch_to("res://Figures.tscn", func(scene): scene.set_dance(dance))
+		SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
 	)
 	%Title.text = dance.name + "\n" + figure.name
 	%Steps/Add.pressed.connect(add_new_step)
@@ -40,7 +40,7 @@ func add_new_step():
 
 
 func append_step():
-	var step = preload("res://BiStep.tscn").instantiate()
+	var step = preload("res://scene/BiStep.tscn").instantiate()
 	
 	%Steps.add_child(step)
 	%Steps.move_child(step, %Steps.get_child_count() - 2)

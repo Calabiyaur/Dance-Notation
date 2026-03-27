@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c75l77ojy6jkl"]
 
-[ext_resource type="Script" uid="uid://uno5x1bo4q4o" path="res://FiguresScene.gd" id="1_s54bi"]
+[ext_resource type="Script" uid="uid://uno5x1bo4q4o" path="res://scene/Figures.gd" id="1_s54bi"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_s54bi"]
 device = -1
