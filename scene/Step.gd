@@ -1,21 +1,52 @@
 extends Button
 
 
+const COLOR = Color.WHITE
+const LINE_WIDTH = 2
+const SCALE = Vector2(20, 20)
+
 var step: Step
+
+var center: Vector2
 
 
 func _draw() -> void:
-	var center: Vector2 = size / 2
-	if step.right_foot:
-		center.x -= 10
-	if step.left_foot:
-		center.x += 10
+	center = size / 2
 	
-	var foot_points: PackedVector2Array = []
-	if step.right_foot:
-		foot_points.append_array([center + Vector2(0, 20), center + Vector2(0, -20), center + Vector2(20, 0), center + Vector2(0, 20)])
 	if step.left_foot:
-		foot_points.append_array([center + Vector2(0, 20), center + Vector2(0, -20), center + Vector2(-20, 0), center + Vector2(0, 20)])
+		draw_foot(step.left_foot, true)
+	if step.right_foot:
+		draw_foot(step.right_foot, false)
+
+
+func draw_foot(foot: Foot, flip: bool):
+	var offset: Vector2 = Vector2(-0.4, 0)
 	
-	if foot_points.size() > 0:
-		draw_polyline(foot_points, Color.WHITE, 2)
+	var points: PackedVector2Array = [
+		Vector2.DOWN,
+		Vector2.RIGHT,
+		Vector2.UP,
+		Vector2.DOWN
+	]
+	
+	for i in points.size():
+		points[i] = center + (points[i] + offset) * SCALE \
+				* Vector2(-1 if flip else 1, 1)
+	
+	draw_polyline(points, COLOR, LINE_WIDTH)
+	
+	if foot.length > 0:
+		var line_from = Vector2.UP if foot.direction in [0, 1, 2, 6, 7] \
+				else Vector2.DOWN
+		line_from += -offset if flip else offset
+		
+		var angle = (foot.direction + 2) / 8.0 * TAU
+		var line_to = line_from + 0.5 * foot.length * Vector2(
+			cos(angle),
+			-sin(angle)
+		)
+		
+		line_from = center + line_from * SCALE
+		line_to = center + line_to * SCALE
+		
+		draw_line(line_from, line_to, COLOR, LINE_WIDTH)

@@ -37,8 +37,6 @@ func add_new_step():
 	var step = append_step()
 	
 	var bistep = BiStep.new()
-	#bistep.follow.left_foot = Foot.new()
-	#bistep.lead.right_foot = Foot.new()
 	
 	step.step = bistep
 	step.get_lead().step = bistep.lead
