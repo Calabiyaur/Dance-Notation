@@ -1,6 +1,7 @@
 
 # Godot
 .godot
+.nomedia
 /.import/
 *.import
 /addons/

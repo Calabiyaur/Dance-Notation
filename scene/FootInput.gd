@@ -1,6 +1,12 @@
 extends GridContainer
 
 
+const DIRECTION_VALUES: Array[float] = [
+	TAU * 0.25, TAU * 0.375, TAU * 0.5, TAU * 0.625,
+	TAU * 0.75, TAU * 0.875, 0, TAU * 0.125
+]
+const LENGTH_VALUES: Array[float] = [0, 0.5, 1, 1.5]
+
 var foot: Foot
 
 signal data_changed
@@ -12,13 +18,13 @@ func _ready() -> void:
 
 
 func length_selected(id: int):
-	foot.length = id
+	foot.length = LENGTH_VALUES[id]
 	$Direction.visible = foot.length != 0
 	data_changed.emit()
 
 
 func direction_selected(id: int):
-	foot.direction = id
+	foot.direction = DIRECTION_VALUES[id]
 	data_changed.emit()
 
 
@@ -28,7 +34,7 @@ func set_foot(foot: Foot):
 	visible = foot != null
 	
 	if foot:
-		$Length.select(foot.length)
-		$Direction.select(foot.direction)
+		$Length.select(LENGTH_VALUES.find(foot.length))
+		$Direction.select(DIRECTION_VALUES.find(foot.direction))
 		
 		$Direction.visible = foot.length != 0

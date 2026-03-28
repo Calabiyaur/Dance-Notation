@@ -1,4 +1,4 @@
 extends Node
 
 
-var edit = false
+var edit = true
