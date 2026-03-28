@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ggljifhco1ib"]
+
+[ext_resource type="Script" uid="uid://cshgcscagiw5r" path="res://scene/BodyInput.gd" id="1_vqdtu"]
+
+[node name="BodyInput" type="GridContainer" unique_id=1416200981]
+columns = 2
+script = ExtResource("1_vqdtu")
+
+[node name="Direction" type="OptionButton" parent="." unique_id=2055162654]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Nach links"
+popup/item_0/id = 0
+popup/item_1/text = "Nach rechts"
+popup/item_1/id = 1
+
+[node name="Angle" type="OptionButton" parent="." unique_id=1390242664]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 8
+popup/item_0/text = "Um 45°"
+popup/item_0/id = 0
+popup/item_1/text = "Um 90°"
+popup/item_1/id = 1
+popup/item_2/text = "Um 135°"
+popup/item_2/id = 2
+popup/item_3/text = "Um 180°"
+popup/item_3/id = 3
+popup/item_4/text = "Um 225°"
+popup/item_4/id = 4
+popup/item_5/text = "Um 270°"
+popup/item_5/id = 5
+popup/item_6/text = "Um 315°"
+popup/item_6/id = 6
+popup/item_7/text = "Um 360°"
+popup/item_7/id = 7
