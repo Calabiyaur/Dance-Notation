@@ -1,4 +1,4 @@
-extends MarginContainer
+extends VBoxContainer
 
 
 var step: Step
@@ -27,6 +27,7 @@ func _ready() -> void:
 		data_changed.emit()
 	)
 	
+	%DurationInput.data_changed.connect(func(): data_changed.emit())
 	%BodyInput.data_changed.connect(func(): data_changed.emit())
 	%RightFootInput.data_changed.connect(func(): data_changed.emit())
 	%RightFootInput.data_changed.connect(func(): data_changed.emit())
@@ -45,6 +46,7 @@ func set_step(step: Step):
 	%LeftFootActive.disabled = step.right_foot != null
 	%RightFootActive.disabled = step.left_foot != null
 	
+	%DurationInput.set_step(step)
 	%BodyInput.set_step(step)
 	%LeftFootInput.set_foot(step.left_foot)
 	%RightFootInput.set_foot(step.right_foot)

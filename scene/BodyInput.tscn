@@ -19,7 +19,7 @@ popup/item_1/id = 1
 [node name="Angle" type="OptionButton" parent="." unique_id=1390242664]
 layout_mode = 2
 size_flags_horizontal = 3
-selected = 1
+selected = 0
 item_count = 8
 popup/item_0/text = "Um 45°"
 popup/item_0/id = 0

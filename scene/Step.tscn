@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" uid="uid://co01o4brrq73h" path="res://scene/Step.gd" id="1_d85q0"]
 
-[node name="Lead" type="Button"]
-custom_minimum_size = Vector2(64, 128)
+[node name="Lead" type="Button" unique_id=1157876690]
+custom_minimum_size = Vector2(48, 160)
 script = ExtResource("1_d85q0")

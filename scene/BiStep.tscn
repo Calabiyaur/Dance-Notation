@@ -30,5 +30,5 @@ size_flags_vertical = 4
 text = " ... "
 flat = false
 item_count = 1
-popup/item_0/text = "Delete"
+popup/item_0/text = "Löschen"
 popup/item_0/id = 0

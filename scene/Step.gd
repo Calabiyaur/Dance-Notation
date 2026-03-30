@@ -13,6 +13,9 @@ var center: Vector2
 func _draw() -> void:
 	center = size / 2
 	
+	if step.duration != 1:
+		draw_duration()
+	
 	if step.body_rotation != 0:
 		draw_body_rotation()
 	
@@ -24,8 +27,19 @@ func _draw() -> void:
 		draw_pause()
 
 
+func draw_duration():
+	var offset: Vector2 = Vector2(
+		-0.6 if step.left_foot else -0.4 if step.right_foot else 0,
+		0
+	)
+	offset.x += step.duration
+	var from: Vector2 = center + (Vector2.UP * 0.5 + offset) * SCALE
+	var to: Vector2 = center + (Vector2.DOWN * 0.5 + offset) * SCALE
+	draw_line(from, to, COLOR, LINE_WIDTH)
+
+
 func draw_body_rotation():
-	var c = center + Vector2(0, 2.1) * SCALE
+	var c = center + Vector2(0, 2.5) * SCALE
 	match step.body_rotation:
 		TAU * -0.625: c.x -= 0.05 * SCALE.x
 		TAU * -0.5: c.x -= 0.25 * SCALE.x

@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bn7w3wby0i2lw" path="res://scene/FootInput.tscn" id="1_6w566"]
 [ext_resource type="Script" uid="uid://cwswhl3n0nj2l" path="res://scene/StepDetails.gd" id="1_oji2g"]
+[ext_resource type="Script" uid="uid://d1e3qs5aqgy1w" path="res://scene/DurationInput.gd" id="2_4acno"]
 [ext_resource type="PackedScene" uid="uid://ggljifhco1ib" path="res://scene/BodyInput.tscn" id="3_4mjnj"]
 
-[node name="Details" type="MarginContainer" unique_id=793527702]
+[node name="Details" type="VBoxContainer" unique_id=1452149067]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,139 +13,186 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/separation = 0
 script = ExtResource("1_oji2g")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=794955621]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1776855972]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1871212261]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=280815218]
+layout_mode = 2
+color = Color(0, 0, 0, 0.1882353)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=944871068]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer" unique_id=23016733]
+layout_mode = 2
+columns = 2
+
+[node name="DurationLabel" type="Label" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2010113378]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Tempo"
+
+[node name="DurationInput" type="OptionButton" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1004351471]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Normal"
+popup/item_0/id = 0
+popup/item_1/text = "Dreiviertelschlag"
+popup/item_1/id = 1
+popup/item_2/text = "Halber Schlag"
+popup/item_2/id = 2
+popup/item_3/text = "Viertelschlag"
+popup/item_3/id = 3
+script = ExtResource("2_4acno")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=866010918]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer2" unique_id=794955621]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/ScrollContainer" unique_id=296165129]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer" unique_id=1871212261]
 layout_mode = 2
 theme_override_constants/h_separation = 8
 columns = 3
 
-[node name="HeadLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=1904195960]
+[node name="HeadLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1904195960]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Kopf"
 
-[node name="HeadActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=287092563]
+[node name="HeadActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=287092563]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1407147187]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1407147187]
+visible = false
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="LeftHandLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=381482209]
+[node name="LeftHandLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=381482209]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Linke Hand"
 
-[node name="LeftHandActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=1233304604]
+[node name="LeftHandActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1233304604]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1043448302]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1043448302]
+visible = false
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="RightHandLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=651697559]
+[node name="RightHandLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=651697559]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Rechte Hand"
 
-[node name="RightHandActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=953477000]
+[node name="RightHandActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=953477000]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 
-[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1484726499]
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1484726499]
+visible = false
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="UpperBodyLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=48627637]
+[node name="UpperBodyLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=48627637]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Oberkörper"
 
-[node name="UpperBodyActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=580626805]
+[node name="UpperBodyActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=580626805]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 
-[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1662931872]
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1662931872]
+visible = false
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="LeftFootLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=302079664]
+[node name="LeftFootLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=302079664]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Linker Fuß"
 
-[node name="LeftFootActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=1899114352]
+[node name="LeftFootActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1899114352]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer5" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=732197314]
+[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=732197314]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="LeftFootInput" parent="ScrollContainer/GridContainer/MarginContainer5" unique_id=595126082 instance=ExtResource("1_6w566")]
+[node name="LeftFootInput" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer/MarginContainer5" unique_id=595126082 instance=ExtResource("1_6w566")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RightFootLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=2063358780]
+[node name="RightFootLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=2063358780]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Rechter Fuß"
 
-[node name="RightFootActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=492894939]
+[node name="RightFootActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=492894939]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer6" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=1889545001]
+[node name="MarginContainer6" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1889545001]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="RightFootInput" parent="ScrollContainer/GridContainer/MarginContainer6" unique_id=1742654802 instance=ExtResource("1_6w566")]
+[node name="RightFootInput" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer/MarginContainer6" unique_id=1742654802 instance=ExtResource("1_6w566")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BodyLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=648529163]
+[node name="BodyLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=648529163]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Körper"
 
-[node name="BodyActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=675508545]
+[node name="BodyActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=675508545]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer7" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=692725102]
+[node name="MarginContainer7" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=692725102]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="BodyInput" parent="ScrollContainer/GridContainer/MarginContainer7" unique_id=1416200981 instance=ExtResource("3_4mjnj")]
+[node name="BodyInput" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer/MarginContainer7" unique_id=1416200981 instance=ExtResource("3_4mjnj")]
 unique_name_in_owner = true
-layout_mode = 2
-
-[node name="TempoLabel" type="Label" parent="ScrollContainer/GridContainer" unique_id=897626276]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Tempo"
-
-[node name="TempoActive" type="CheckButton" parent="ScrollContainer/GridContainer" unique_id=1072127774]
-unique_name_in_owner = true
-layout_mode = 2
-disabled = true
-
-[node name="MarginContainer8" type="MarginContainer" parent="ScrollContainer/GridContainer" unique_id=188222171]
-custom_minimum_size = Vector2(0, 31)
 layout_mode = 2

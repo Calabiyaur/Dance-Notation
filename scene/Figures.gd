@@ -26,7 +26,7 @@ func add_figure_button(figure: Figure) -> Button:
 
 func open_create_figure_dialog():
 	var dialog = AcceptDialog.new()
-	dialog.title = "Create a new figure"
+	dialog.title = "Erstelle eine neue Figur"
 	dialog.get_ok_button().disabled = true
 	
 	var line = LineEdit.new()
@@ -46,7 +46,7 @@ func open_create_figure_dialog():
 	)
 	
 	add_child(dialog)
-	dialog.popup_centered(Vector2i(240, 60))
+	dialog.popup_centered(Vector2i(280, 60))
 	
 	line.grab_focus()
 

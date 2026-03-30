@@ -38,3 +38,6 @@ func set_foot(foot: Foot):
 		$Direction.select(DIRECTION_VALUES.find(foot.direction))
 		
 		$Direction.visible = foot.length != 0
+	
+	if not $Direction.visible:
+		$Direction.select(0)

@@ -22,7 +22,7 @@ func add_dance_button(dance: Dance) -> Button:
 
 func open_create_dance_dialog():
 	var dialog = AcceptDialog.new()
-	dialog.title = "Create a new dance"
+	dialog.title = "Erstelle einen neuen Tanz"
 	dialog.get_ok_button().disabled = true
 	
 	var line = LineEdit.new()
@@ -42,6 +42,6 @@ func open_create_dance_dialog():
 	)
 	
 	add_child(dialog)
-	dialog.popup_centered(Vector2i(240, 60))
+	dialog.popup_centered(Vector2i(280, 60))
 	
 	line.grab_focus()
