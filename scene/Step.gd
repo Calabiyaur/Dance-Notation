@@ -28,6 +28,18 @@ func _draw() -> void:
 
 
 func draw_duration():
+	var xs: Array[float] = []
+	match step.duration:
+		0.25: xs.append(0)
+		0.5: xs.append_array([-0.16, 0.16])
+		0.75: xs.append_array([-0.25, 0, 0.25])
+	
+	for x in xs:
+		var c = center + Vector2(x, 0) * SCALE
+		draw_circle(c, LINE_WIDTH, COLOR, true)
+
+
+func draw_duration_line(): # unused alternative to draw_duration
 	var offset: Vector2 = Vector2(
 		-0.6 if step.left_foot else -0.4 if step.right_foot else 0,
 		0
