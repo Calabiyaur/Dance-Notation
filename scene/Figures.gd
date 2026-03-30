@@ -20,6 +20,7 @@ func add_figure_button(figure: Figure) -> Button:
 	var button = preload("res://scene/FigureButton.tscn").instantiate()
 	button.set_dance(dance)
 	button.set_figure(figure)
+	button.delete_pressed.connect(delete_figure.bind(button))
 	%Figures.add_child(button)
 	return button
 
@@ -42,13 +43,18 @@ func open_create_figure_dialog():
 		dance.figures.append(figure)
 		var button = add_figure_button(figure)
 		Data.save()
-		button.pressed.emit()
 	)
 	
 	add_child(dialog)
 	dialog.popup_centered(Vector2i(280, 60))
 	
 	line.grab_focus()
+
+
+func delete_figure(button: Button):
+	%Figures.remove_child(button)
+	dance.figures.erase(button.figure)
+	Data.save()
 
 
 func set_dance(dance: Dance):

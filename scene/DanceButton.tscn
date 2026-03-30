@@ -34,10 +34,15 @@ text = "8 - 0"
 layout_mode = 2
 theme_override_constants/margin_right = 4
 
-[node name="More" type="Button" parent="HBoxContainer/MarginContainer" unique_id=1914628967]
+[node name="More" type="MenuButton" parent="HBoxContainer/MarginContainer" unique_id=1698743927]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_vertical = 4
-disabled = true
 text = " ... "
+flat = false
+item_count = 2
+popup/item_0/text = "Umbenennen"
+popup/item_0/id = 0
+popup/item_1/text = "Löschen"
+popup/item_1/id = 1

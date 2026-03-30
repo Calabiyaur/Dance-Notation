@@ -16,6 +16,7 @@ func _ready() -> void:
 func add_dance_button(dance: Dance) -> Button:
 	var button = preload("res://scene/DanceButton.tscn").instantiate()
 	button.set_dance(dance)
+	button.delete_pressed.connect(delete_dance.bind(button))
 	%Dances.add_child(button)
 	return button
 
@@ -38,10 +39,15 @@ func open_create_dance_dialog():
 		data.dances.append(dance)
 		var button = add_dance_button(dance)
 		Data.save()
-		button.pressed.emit()
 	)
 	
 	add_child(dialog)
 	dialog.popup_centered(Vector2i(280, 60))
 	
 	line.grab_focus()
+
+
+func delete_dance(button: Button):
+	%Dances.remove_child(button)
+	data.dances.erase(button.dance)
+	Data.save()
