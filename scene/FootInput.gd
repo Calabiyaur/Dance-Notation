@@ -19,7 +19,11 @@ func _ready() -> void:
 
 func length_selected(id: int):
 	foot.length = LENGTH_VALUES[id]
+	var direction_was_invisible = not $Direction.visible
 	$Direction.visible = foot.length != 0
+	if direction_was_invisible:
+		$Direction.select(0)
+		foot.direction = DIRECTION_VALUES[0]
 	data_changed.emit()
 
 

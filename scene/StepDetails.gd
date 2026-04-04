@@ -15,13 +15,13 @@ func _ready() -> void:
 		data_changed.emit()
 	)
 	%LeftFootActive.toggled.connect(func(value: bool):
-		step.left_foot = Foot.new() if value else null
+		step.left_foot = Foot.new(TAU * 0.25, 1) if value else null
 		%LeftFootInput.set_foot(step.left_foot)
 		%RightFootActive.disabled = value
 		data_changed.emit()
 	)
 	%RightFootActive.toggled.connect(func(value: bool):
-		step.right_foot = Foot.new() if value else null
+		step.right_foot = Foot.new(TAU * 0.25, 1) if value else null
 		%RightFootInput.set_foot(step.right_foot)
 		%LeftFootActive.disabled = value
 		data_changed.emit()
@@ -29,7 +29,7 @@ func _ready() -> void:
 	
 	%DurationInput.data_changed.connect(func(): data_changed.emit())
 	%BodyInput.data_changed.connect(func(): data_changed.emit())
-	%RightFootInput.data_changed.connect(func(): data_changed.emit())
+	%LeftFootInput.data_changed.connect(func(): data_changed.emit())
 	%RightFootInput.data_changed.connect(func(): data_changed.emit())
 
 
