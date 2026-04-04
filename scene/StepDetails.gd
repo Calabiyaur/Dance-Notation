@@ -46,7 +46,7 @@ func set_step(step: Step):
 	%LeftFootActive.disabled = step.right_foot != null
 	%RightFootActive.disabled = step.left_foot != null
 	
-	%DurationInput.set_step(step)
+	%DurationInput.set_data(step)
 	%BodyInput.set_step(step)
 	%LeftFootInput.set_foot(step.left_foot)
 	%RightFootInput.set_foot(step.right_foot)

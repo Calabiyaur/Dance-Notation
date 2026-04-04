@@ -1,25 +1,26 @@
-extends OptionButton
+extends FormatSpinBox
 
 
 const DURATION_VALUES: Array[float] = [1, 0.75, 0.5, 0.25]
 
 
-var step: Step
+var data: Step
 
 signal data_changed
 
 
 func _ready() -> void:
-	item_selected.connect(duration_selected)
+	super._ready()
+	value_changed.connect(duration_selected)
 
 
-func duration_selected(id: int):
-	step.duration = DURATION_VALUES[id]
+func duration_selected(value: float):
+	data.duration = value
 	data_changed.emit()
 
 
-func set_step(step: Step):
-	self.step = step
+func set_data(data: Step):
+	self.data = data
 	
-	if step:
-		select(DURATION_VALUES.find(step.duration))
+	if data:
+		set_value_no_signal(data.duration)

@@ -28,15 +28,34 @@ func _draw() -> void:
 
 
 func draw_duration():
-	var xs: Array[float] = []
+	var xs: Array[float]
+	var filled: Array[bool]
 	match step.duration:
-		0.25: xs.append(0)
-		0.5: xs.append_array([-0.16, 0.16])
-		0.75: xs.append_array([-0.25, 0, 0.25])
+		0.25:
+			xs = [0]
+			filled = [false]
+		0.5:
+			xs = [-0.16, 0.16]
+			filled = [false, false]
+		0.75:
+			xs = [-0.25, 0, 0.25]
+			filled = [false, false, false]
+		1.25:
+			xs = [-0.16, 0.16]
+			filled = [true, false]
+		1.5:
+			xs = [-0.25, 0, 0.25]
+			filled = [true, false, false]
+		1.75:
+			xs = [-0.3, -0.1, 0.1, 0.3]
+			filled = [true, false, false, false]
+		2.0:
+			xs = [-0.16, 0.16]
+			filled = [true, true]
 	
-	for x in xs:
-		var c = center + Vector2(x, 0) * SCALE
-		draw_circle(c, LINE_WIDTH, COLOR, true)
+	for i in xs.size():
+		var c = center + Vector2(xs[i], 0) * SCALE
+		draw_circle(c, LINE_WIDTH, COLOR, filled[i], LINE_WIDTH * 0.5)
 
 
 func draw_duration_line(): # unused alternative to draw_duration

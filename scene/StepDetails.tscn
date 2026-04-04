@@ -37,21 +37,17 @@ columns = 2
 [node name="DurationLabel" type="Label" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2010113378]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "Tempo"
+text = "Schläge"
 
-[node name="DurationInput" type="OptionButton" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1004351471]
+[node name="DurationInput" type="SpinBox" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1074968352]
 unique_name_in_owner = true
 layout_mode = 2
-selected = 0
-item_count = 4
-popup/item_0/text = "Normal"
-popup/item_0/id = 0
-popup/item_1/text = "Dreiviertelschlag"
-popup/item_1/id = 1
-popup/item_2/text = "Halber Schlag"
-popup/item_2/id = 2
-popup/item_3/text = "Viertelschlag"
-popup/item_3/id = 3
+min_value = 0.25
+max_value = 2.0
+step = 0.25
+value = 1.0
+custom_arrow_step = 0.25
+custom_arrow_round = true
 script = ExtResource("2_4acno")
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=866010918]
