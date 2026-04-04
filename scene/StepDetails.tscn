@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cwswhl3n0nj2l" path="res://scene/StepDetails.gd" id="1_oji2g"]
 [ext_resource type="Script" uid="uid://d1e3qs5aqgy1w" path="res://scene/DurationInput.gd" id="2_4acno"]
 [ext_resource type="PackedScene" uid="uid://ggljifhco1ib" path="res://scene/BodyInput.tscn" id="3_4mjnj"]
+[ext_resource type="PackedScene" uid="uid://b3bl02tcdjv44" path="res://scene/UpperBodyInput.tscn" id="3_udwno"]
 
 [node name="Details" type="VBoxContainer" unique_id=1452149067]
 anchors_preset = 15
@@ -125,19 +126,19 @@ layout_mode = 2
 
 [node name="UpperBodyLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=48627637]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Oberkörper"
 
 [node name="UpperBodyActive" type="CheckButton" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=580626805]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-disabled = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=1662931872]
-visible = false
 custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="UpperBodyInput" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer/MarginContainer4" unique_id=1416200981 instance=ExtResource("3_udwno")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="LeftFootLabel" type="Label" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer" unique_id=302079664]
@@ -189,6 +190,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="BodyInput" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer/MarginContainer7" unique_id=1416200981 instance=ExtResource("3_4mjnj")]
+[node name="BodyInput" parent="MarginContainer2/ScrollContainer/VBoxContainer/GridContainer/MarginContainer7" unique_id=465068965 instance=ExtResource("3_4mjnj")]
 unique_name_in_owner = true
 layout_mode = 2
