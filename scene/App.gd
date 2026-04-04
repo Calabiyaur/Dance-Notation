@@ -11,6 +11,7 @@ func _ready() -> void:
 		add_dance_button(dance)
 	
 	%Add.pressed.connect(open_create_dance_dialog)
+	%Export.pressed.connect(open_export_dialog)
 
 
 func add_dance_button(dance: Dance) -> Button:
@@ -45,6 +46,23 @@ func open_create_dance_dialog():
 	dialog.popup_centered(Vector2i(280, 60))
 	
 	line.grab_focus()
+
+
+func open_export_dialog():
+	var dialog = FileDialog.new()
+	dialog.title = "Daten exportieren"
+	dialog.access = FileDialog.ACCESS_FILESYSTEM
+	dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+	
+	dialog.confirmed.connect(func():
+		var path = dialog.current_path
+		if not path.ends_with(".tres"):
+			path += ".tres"
+		ResourceSaver.save(data, path)
+	)
+	
+	add_child(dialog)
+	dialog.popup_centered()
 
 
 func delete_dance(button: Button):

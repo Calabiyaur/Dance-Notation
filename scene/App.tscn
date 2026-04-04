@@ -27,7 +27,17 @@ text = "Tänze"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Add" type="Button" parent="VBoxContainer/Header" unique_id=208588146]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header" unique_id=1521186725]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Export" type="Button" parent="VBoxContainer/Header/HBoxContainer" unique_id=1927120782]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "Exportieren"
+
+[node name="Add" type="Button" parent="VBoxContainer/Header/HBoxContainer" unique_id=208588146]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
