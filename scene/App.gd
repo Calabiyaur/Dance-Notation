@@ -11,7 +11,7 @@ func _ready() -> void:
 		add_dance_button(dance)
 	
 	%Add.pressed.connect(open_create_dance_dialog)
-	%Export.pressed.connect(log_export)
+	%Export.pressed.connect(Data.print)
 	%Export.visible = OS.is_debug_build()
 
 
@@ -47,10 +47,6 @@ func open_create_dance_dialog():
 	dialog.popup_centered(Vector2i(280, 60))
 	
 	line.grab_focus()
-
-
-func log_export():
-	print(var_to_str(data))
 
 
 func delete_dance(button: Button):

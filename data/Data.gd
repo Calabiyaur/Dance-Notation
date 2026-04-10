@@ -19,3 +19,8 @@ static func load() -> Data:
 
 static func save():
 	ResourceSaver.save(instance, PATH)
+
+
+static func print():
+	var file = FileAccess.open(PATH, FileAccess.READ)
+	print(file.get_as_text())

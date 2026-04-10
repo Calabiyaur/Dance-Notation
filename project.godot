@@ -32,6 +32,10 @@ window/stretch/aspect="expand"
 window/stretch/scale=2.0
 window/handheld/orientation=1
 
+[network]
+
+limits/debugger/max_chars_per_second=1000000
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
