@@ -11,7 +11,7 @@ func _ready() -> void:
 	%Back.pressed.connect(func():
 		go_back()
 	)
-	%Title.text = dance.name + "\n" + figure.name
+	%Title.text = figure.name + "\n" + dance.name
 	%Edit.set_pressed_no_signal(State.edit)
 	%Edit.toggled.connect(func(value: bool):
 		State.edit = value
@@ -64,7 +64,7 @@ func add_new_step(index: int = -1):
 	
 	step.get_lead().button_pressed = true
 	
-	figure.steps.append(bistep)
+	figure.steps.insert(index, bistep)
 	Data.save()
 
 
@@ -88,6 +88,18 @@ func append_step(index: int = -1):
 	step.insert_right.connect(func():
 		var i = figure.steps.find(step.step) + 1
 		add_new_step(i)
+	)
+	step.move_left.connect(func():
+		var i = posmod(figure.steps.find(step.step) - 1, figure.steps.size())
+		%Steps.move_child(step, i)
+		figure.steps.erase(step.step)
+		figure.steps.insert(i, step.step)
+	)
+	step.move_right.connect(func():
+		var i = (figure.steps.find(step.step) + 1) % figure.steps.size()
+		%Steps.move_child(step, i)
+		figure.steps.erase(step.step)
+		figure.steps.insert(i, step.step)
 	)
 	step.delete.connect(func():
 		%Steps.remove_child(step)
