@@ -3,7 +3,7 @@ extends Button
 
 var dance: Dance
 
-signal delete_pressed
+signal delete
 
 
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _ready() -> void:
 func id_pressed(id: int):
 	match id:
 		0: open_rename_dialog()
-		1: delete_pressed.emit()
+		1: delete.emit()
 
 
 func open_rename_dialog():

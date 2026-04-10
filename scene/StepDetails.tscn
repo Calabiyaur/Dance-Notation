@@ -35,6 +35,15 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 columns = 2
 
+[node name="PreconditionLabel" type="Label" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1639051704]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Vorbedingung"
+
+[node name="PreconditionInput" type="CheckBox" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1565173409]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
 [node name="DurationLabel" type="Label" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2010113378]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2

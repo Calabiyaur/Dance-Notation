@@ -9,7 +9,7 @@ var step_button_group: ButtonGroup
 
 func _ready() -> void:
 	%Back.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
+		go_back()
 	)
 	%Title.text = dance.name + "\n" + figure.name
 	%Edit.set_pressed_no_signal(State.edit)
@@ -37,6 +37,15 @@ func _ready() -> void:
 	update_edit_state()
 
 
+func _notification(what):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		go_back()
+
+
+func go_back():
+	SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
+
+
 func add_step(bistep: BiStep):
 	var step = append_step()
 	step.step = bistep
@@ -44,8 +53,8 @@ func add_step(bistep: BiStep):
 	step.get_follow().step = bistep.follow
 
 
-func add_new_step():
-	var step = append_step()
+func add_new_step(index: int = -1):
+	var step = append_step(index)
 	
 	var bistep = BiStep.new()
 	
@@ -59,11 +68,12 @@ func add_new_step():
 	Data.save()
 
 
-func append_step():
+func append_step(index: int = -1):
 	var step = preload("res://scene/BiStep.tscn").instantiate()
 	
 	%Steps.add_child(step)
-	%Steps.move_child(step, %Steps.get_child_count() - 2)
+	%Steps.move_child(step, %Steps.get_child_count() - 2
+			if index == -1 else index)
 	
 	for s: Button in [step.get_lead(), step.get_follow()]:
 		s.button_group = step_button_group
@@ -71,7 +81,15 @@ func append_step():
 			%Details.set_step(s.step if value else null)
 		)
 	
-	step.delete_pressed.connect(func():
+	step.insert_left.connect(func():
+		var i = figure.steps.find(step.step)
+		add_new_step(i)
+	)
+	step.insert_right.connect(func():
+		var i = figure.steps.find(step.step) + 1
+		add_new_step(i)
+	)
+	step.delete.connect(func():
 		%Steps.remove_child(step)
 		figure.steps.erase(step.step)
 		Data.save()

@@ -18,7 +18,7 @@ func _ready() -> void:
 func add_dance_button(dance: Dance) -> Button:
 	var button = preload("res://scene/DanceButton.tscn").instantiate()
 	button.set_dance(dance)
-	button.delete_pressed.connect(delete_dance.bind(button))
+	button.delete.connect(delete_dance.bind(button))
 	%Dances.add_child(button)
 	return button
 

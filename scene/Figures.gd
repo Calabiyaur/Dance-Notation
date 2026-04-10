@@ -6,7 +6,7 @@ var dance: Dance
 
 func _ready() -> void:
 	%Back.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
+		go_back()
 	)
 	%Title.text = dance.name + " - Figuren"
 	%Add.pressed.connect(open_create_figure_dialog)
@@ -16,11 +16,20 @@ func _ready() -> void:
 		add_figure_button(figure)
 
 
+func _notification(what):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		go_back()
+
+
+func go_back():
+	SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
+
+
 func add_figure_button(figure: Figure) -> Button:
 	var button = preload("res://scene/FigureButton.tscn").instantiate()
 	button.set_dance(dance)
 	button.set_figure(figure)
-	button.delete_pressed.connect(delete_figure.bind(button))
+	button.delete.connect(delete_figure.bind(button))
 	%Figures.add_child(button)
 	return button
 
