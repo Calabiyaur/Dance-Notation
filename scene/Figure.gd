@@ -64,7 +64,8 @@ func add_new_step(index: int = -1):
 	
 	step.get_lead().button_pressed = true
 	
-	figure.steps.insert(index, bistep)
+	figure.steps.insert(index if index != -1 else figure.steps.size(),
+		bistep)
 	Data.save()
 
 
