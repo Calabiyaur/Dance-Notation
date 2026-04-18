@@ -27,7 +27,10 @@ SceneSwitcher="*res://common/SceneSwitcher.gd"
 
 [display]
 
+window/size/viewport_width=2304
+window/size/viewport_height=1296
 window/stretch/aspect="expand"
+window/stretch/scale=2.0
 window/handheld/orientation=1
 
 [network]
