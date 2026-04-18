@@ -27,8 +27,16 @@ func get_lead():
 	return %Lead
 
 
+func get_lead_button():
+	return %Lead/%Button
+
+
 func get_follow():
 	return %Follow
+
+
+func get_follow_button():
+	return %Follow/%Button
 
 
 func get_more():

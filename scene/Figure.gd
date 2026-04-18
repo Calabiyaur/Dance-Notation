@@ -22,9 +22,11 @@ func _ready() -> void:
 		if button:
 			button.set_pressed(false)
 	)
+	%Steps/Add.item_rect_changed.connect(align_steps)
 	%Steps/Add.pressed.connect(add_new_step)
 	%Details.data_changed.connect(func():
-		var step = step_button_group.get_pressed_button()
+		align_steps()
+		var step = step_button_group.get_pressed_button().get_parent()
 		step.queue_redraw()
 		Data.save()
 	)
@@ -35,6 +37,8 @@ func _ready() -> void:
 		add_step(step)
 	
 	update_edit_state()
+	
+	align_steps()
 
 
 func _notification(what):
@@ -62,7 +66,7 @@ func add_new_step(index: int = -1):
 	step.get_lead().step = bistep.lead
 	step.get_follow().step = bistep.follow
 	
-	step.get_lead().button_pressed = true
+	step.get_lead_button().button_pressed = true
 	
 	figure.steps.insert(index if index != -1 else figure.steps.size(),
 		bistep)
@@ -76,10 +80,10 @@ func append_step(index: int = -1):
 	%Steps.move_child(step, %Steps.get_child_count() - 2
 			if index == -1 else index)
 	
-	for s: Button in [step.get_lead(), step.get_follow()]:
+	for s: Button in [step.get_lead_button(), step.get_follow_button()]:
 		s.button_group = step_button_group
 		s.toggled.connect(func(value: bool):
-			%Details.set_step(s.step if value else null)
+			%Details.set_step(s.get_parent().step if value else null)
 		)
 	
 	step.insert_left.connect(func():
@@ -109,6 +113,45 @@ func append_step(index: int = -1):
 	)
 	
 	return step
+
+
+func align_steps():
+	if %Steps.get_child_count() <= 1:
+		return
+	
+	var y = -1
+	var leads = []
+	var follows = []
+	var rows = []
+	for bistep in %Steps.get_children():
+		if not bistep.has_method("get_lead"):
+			continue
+		if bistep.position.y != y:
+			y = bistep.position.y
+			if not leads.is_empty():
+				rows.append(leads)
+				rows.append(follows)
+				leads = []
+				follows = []
+		leads.append(bistep.get_lead())
+		follows.append(bistep.get_follow())
+	if not leads.is_empty():
+		rows.append(leads)
+		rows.append(follows)
+	
+	print("rows: ", rows.map(func(row): return row.size()))
+	
+	var part_count = rows[0][0].parts.size()
+	var show_part: Array[bool] = []
+	show_part.resize(part_count)
+	for row in rows:
+		show_part.fill(false)
+		for step in row:
+			for i in part_count:
+				show_part[i] = show_part[i] or step.parts[i].has_data()
+		for step in row:
+			for i in part_count:
+				step.parts[i].visible = show_part[i]
 
 
 func update_edit_state():
