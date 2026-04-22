@@ -8,6 +8,9 @@ func _ready() -> void:
 	%Back.pressed.connect(func(): go_back())
 	%Title.text = dance.name
 	%FigureCount.text = str(dance.figures.size())
+	%Categories/Music.pressed.connect(func():
+		SceneSwitcher.switch_to("res://scene/Music.tscn", func(scene): scene.set_dance(dance))
+	)
 	%Categories/Figures.pressed.connect(func():
 		SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
 	)
