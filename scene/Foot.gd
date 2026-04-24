@@ -62,26 +62,26 @@ func draw_duration():
 	match step.duration:
 		0.25:
 			xs = [0]
-			filled = [false]
+			filled = [true]
 		0.5:
 			xs = [-0.16, 0.16]
-			filled = [false, false]
+			filled = [true, true]
 		0.75:
 			xs = [-0.25, 0, 0.25]
-			filled = [false, false, false]
+			filled = [true, true, true]
 		1.25:
 			xs = [-0.16, 0.16]
-			filled = [true, false]
+			filled = [false, true]
 		1.5:
 			xs = [-0.25, 0, 0.25]
-			filled = [true, false, false]
+			filled = [false, true, true]
 		1.75:
 			xs = [-0.3, -0.1, 0.1, 0.3]
-			filled = [true, false, false, false]
+			filled = [false, true, true, true]
 		2.0:
 			xs = [-0.16, 0.16]
-			filled = [true, true]
+			filled = [false, false]
 	
 	for i in xs.size():
 		var c = center + Vector2(xs[i], 0) * SCALE
-		draw_circle(c, LINE_WIDTH, COLOR, filled[i], LINE_WIDTH * 0.5)
+		draw_circle(c, LINE_WIDTH, COLOR, filled[i], LINE_WIDTH * 0.5, true)
