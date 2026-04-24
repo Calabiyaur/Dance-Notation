@@ -47,4 +47,6 @@ func open_rename_dialog():
 func set_dance(dance: Dance):
 	self.dance = dance
 	text = dance.name
+	%Time.text = str(dance.music.time)
+	%Tempo.text = str(dance.music.beats_per_minute)
 	%Count.text = str(dance.figures.size()) + " - " + str(dance.choreos.size())

@@ -50,7 +50,6 @@ layout_mode = 2
 [node name="History" type="Button" parent="VBoxContainer/Categories" unique_id=168856300]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-disabled = true
 text = "Geschichte"
 
 [node name="Music" type="Button" parent="VBoxContainer/Categories" unique_id=1321839985]
@@ -61,7 +60,6 @@ text = "Musik"
 [node name="Posture" type="Button" parent="VBoxContainer/Categories" unique_id=1160767784]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-disabled = true
 text = "Haltung"
 
 [node name="Figures" type="Button" parent="VBoxContainer/Categories" unique_id=1281025468]

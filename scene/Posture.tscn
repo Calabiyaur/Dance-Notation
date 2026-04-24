@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bse6fe0niu4h5"]
+
+[ext_resource type="Script" uid="uid://dtheera3oj6ng" path="res://scene/Posture.gd" id="1_t1dl0"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3sfyk"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_fnstt"]
+events = [SubResource("InputEventKey_3sfyk")]
+
+[node name="Posture" type="MarginContainer" unique_id=1811146057]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_t1dl0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=338423628]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer" unique_id=1022270292]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Back" type="Button" parent="VBoxContainer/Header" unique_id=1900875545]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+shortcut = SubResource("Shortcut_fnstt")
+text = "<-"
+
+[node name="Title" type="Label" parent="VBoxContainer/Header" unique_id=1738971306]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Geschichte - <Tanz>"
+vertical_alignment = 1
+
+[node name="Edit" type="Button" parent="VBoxContainer/Header" unique_id=1182913553]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+toggle_mode = true
+text = "Bearbeiten"
+
+[node name="Technique" type="HBoxContainer" parent="VBoxContainer" unique_id=1874536752]
+layout_mode = 2
+
+[node name="TechniqueLabel" type="Label" parent="VBoxContainer/Technique" unique_id=1473685476]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Technik"
+
+[node name="TechniqueInput" type="LineEdit" parent="VBoxContainer/Technique" unique_id=1335203346]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="Text" type="TextEdit" parent="VBoxContainer" unique_id=1252914256]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
