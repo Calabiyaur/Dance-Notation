@@ -109,6 +109,8 @@ func append_step(index: int = -1):
 	step.delete.connect(func():
 		%Steps.remove_child(step)
 		figure.steps.erase(step.step)
+		if %Details.step in [step.step.lead, step.step.follow]:
+			%Details.set_step(null)
 		Data.save()
 	)
 	
@@ -138,8 +140,6 @@ func align_steps():
 	if not leads.is_empty():
 		rows.append(leads)
 		rows.append(follows)
-	
-	print("rows: ", rows.map(func(row): return row.size()))
 	
 	var part_count = rows[0][0].parts.size()
 	var show_part: Array[bool] = []
