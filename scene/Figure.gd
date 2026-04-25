@@ -121,6 +121,7 @@ func align_steps():
 	if %Steps.get_child_count() <= 1:
 		return
 	
+	# collect rows of steps
 	var y = -1
 	var leads = []
 	var follows = []
@@ -141,6 +142,7 @@ func align_steps():
 		rows.append(leads)
 		rows.append(follows)
 	
+	# show / hide precondition brackets
 	var steps = []
 	for row in rows:
 		steps.append_array(row)
@@ -153,6 +155,7 @@ func align_steps():
 		right_bracket.visible = right_bracket.has_data() \
 				and (i == steps.size() - 1 or not steps[i + 1].get_node("%LeftBracket").has_data())
 	
+	# show / hide parts
 	var parts = ["%UpperBody", "%Foot", "%Body"]
 	var show_parts = [false, false, false]
 	for row in rows:

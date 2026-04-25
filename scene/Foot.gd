@@ -52,7 +52,8 @@ func draw_foot(foot: Foot, flip: bool):
 
 
 func draw_pause():
-	var rect = Rect2(center - SCALE / 2, SCALE)
+	var rect_size = SCALE / 2
+	var rect = Rect2(center - rect_size / 2, rect_size)
 	draw_rect(rect, COLOR, false, LINE_WIDTH)
 
 
@@ -84,4 +85,4 @@ func draw_duration():
 	
 	for i in xs.size():
 		var c = center + Vector2(xs[i], 0) * SCALE
-		draw_circle(c, LINE_WIDTH, COLOR, filled[i], LINE_WIDTH * 0.5, true)
+		draw_circle(c, LINE_WIDTH - 0.5, COLOR, filled[i], LINE_WIDTH * 0.25, true)
