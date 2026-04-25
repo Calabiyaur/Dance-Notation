@@ -2,6 +2,7 @@ class_name Step
 extends Resource
 
 
+@export var precondition: bool = false
 @export var duration: float = 1
 
 @export var left_foot: Foot

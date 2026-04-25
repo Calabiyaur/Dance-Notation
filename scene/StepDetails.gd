@@ -32,6 +32,7 @@ func _ready() -> void:
 		data_changed.emit()
 	)
 	
+	%PreconditionInput.data_changed.connect(func(): data_changed.emit())
 	%DurationInput.data_changed.connect(func(): data_changed.emit())
 	%UpperBodyInput.data_changed.connect(func(): data_changed.emit())
 	%LeftFootInput.data_changed.connect(func(): data_changed.emit())
@@ -53,6 +54,7 @@ func set_step(step: Step):
 	%LeftFootActive.disabled = step.right_foot != null
 	%RightFootActive.disabled = step.left_foot != null
 	
+	%PreconditionInput.set_data(step)
 	%DurationInput.set_data(step)
 	%UpperBodyInput.set_step(step)
 	%LeftFootInput.set_foot(step.left_foot)

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bn7w3wby0i2lw" path="res://scene/FootInput.tscn" id="1_6w566"]
 [ext_resource type="Script" uid="uid://cwswhl3n0nj2l" path="res://scene/StepDetails.gd" id="1_oji2g"]
 [ext_resource type="Script" uid="uid://d1e3qs5aqgy1w" path="res://scene/DurationInput.gd" id="2_4acno"]
+[ext_resource type="Script" uid="uid://yw54sotrwsqh" path="res://scene/PreconditionInput.gd" id="2_f1a27"]
 [ext_resource type="PackedScene" uid="uid://ggljifhco1ib" path="res://scene/BodyInput.tscn" id="3_4mjnj"]
 [ext_resource type="PackedScene" uid="uid://b3bl02tcdjv44" path="res://scene/UpperBodyInput.tscn" id="3_udwno"]
 
@@ -41,8 +42,10 @@ layout_mode = 2
 text = "Vorbedingung"
 
 [node name="PreconditionInput" type="CheckBox" parent="MarginContainer/MarginContainer/GridContainer" unique_id=1565173409]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+script = ExtResource("2_f1a27")
 
 [node name="DurationLabel" type="Label" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2010113378]
 custom_minimum_size = Vector2(150, 0)

@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://co01o4brrq73h" path="res://scene/Step.gd" id="1_d85q0"]
 [ext_resource type="Script" uid="uid://dywerba1aex1h" path="res://scene/UpperBody.gd" id="2_1m6t8"]
+[ext_resource type="Script" uid="uid://b3r0sos2a88ny" path="res://scene/LeftBracket.gd" id="2_mm5k1"]
 [ext_resource type="Script" uid="uid://ccxg4ji38egy4" path="res://scene/Foot.gd" id="2_wo7mw"]
 [ext_resource type="Script" uid="uid://bygfuaod1vk2w" path="res://scene/Body.gd" id="3_fkp8y"]
+[ext_resource type="Script" uid="uid://b8c3nbmk4l57t" path="res://scene/RightBracket.gd" id="6_kg1vm"]
 
 [node name="Step" type="MarginContainer" unique_id=563231284]
 offset_right = 48.0
@@ -15,11 +17,43 @@ unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=520907903]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1721627156]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="UpperBody" type="ColorRect" parent="VBoxContainer" unique_id=158993433]
+[node name="LeftBracket" type="ColorRect" parent="HBoxContainer" unique_id=1845458364]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.18039216, 0.18039216, 0.18039216, 0)
+script = ExtResource("2_mm5k1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=520907903]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="LeftHand" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=2007617227]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.18039216, 0.18039216, 0.18039216, 0)
+
+[node name="RightHand" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=1886081237]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.18039216, 0.18039216, 0.18039216, 0)
+
+[node name="UpperBody" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=158993433]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(48, 24)
@@ -28,7 +62,7 @@ mouse_filter = 2
 color = Color(0.18039216, 0.18039216, 0.18039216, 0)
 script = ExtResource("2_1m6t8")
 
-[node name="Foot" type="ColorRect" parent="VBoxContainer" unique_id=920445975]
+[node name="Foot" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=920445975]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(48, 96)
@@ -37,7 +71,7 @@ mouse_filter = 2
 color = Color(0.18039216, 0.18039216, 0.18039216, 0)
 script = ExtResource("2_wo7mw")
 
-[node name="Body" type="ColorRect" parent="VBoxContainer" unique_id=747696326]
+[node name="Body" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=747696326]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(48, 24)
@@ -45,3 +79,12 @@ layout_mode = 2
 mouse_filter = 2
 color = Color(0.18039216, 0.18039216, 0.18039216, 0)
 script = ExtResource("3_fkp8y")
+
+[node name="RightBracket" type="ColorRect" parent="HBoxContainer" unique_id=1163606444]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.18039216, 0.18039216, 0.18039216, 0)
+script = ExtResource("6_kg1vm")

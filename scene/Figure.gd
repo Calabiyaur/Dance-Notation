@@ -141,17 +141,28 @@ func align_steps():
 		rows.append(leads)
 		rows.append(follows)
 	
-	var part_count = rows[0][0].parts.size()
-	var show_part: Array[bool] = []
-	show_part.resize(part_count)
+	var steps = []
 	for row in rows:
-		show_part.fill(false)
+		steps.append_array(row)
+	for i in steps.size():
+		var step = steps[i]
+		var left_bracket = step.get_node("%LeftBracket")
+		var right_bracket = step.get_node("%RightBracket")
+		left_bracket.visible = left_bracket.has_data() \
+				and (i == 0 or not steps[i - 1].get_node("%RightBracket").has_data())
+		right_bracket.visible = right_bracket.has_data() \
+				and (i == steps.size() - 1 or not steps[i + 1].get_node("%LeftBracket").has_data())
+	
+	var parts = ["%UpperBody", "%Foot", "%Body"]
+	var show_parts = [false, false, false]
+	for row in rows:
+		show_parts.fill(false)
 		for step in row:
-			for i in part_count:
-				show_part[i] = show_part[i] or step.parts[i].has_data()
+			for i in parts.size():
+				show_parts[i] = show_parts[i] or step.get_node(parts[i]).has_data()
 		for step in row:
-			for i in part_count:
-				step.parts[i].visible = show_part[i]
+			for i in parts.size():
+				step.get_node(parts[i]).visible = show_parts[i]
 
 
 func update_edit_state():

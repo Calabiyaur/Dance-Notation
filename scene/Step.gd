@@ -3,7 +3,7 @@ extends MarginContainer
 
 var step: Step: set = set_step
 
-@onready var parts = [%UpperBody, %Foot, %Body]
+@onready var parts = [%LeftBracket, %UpperBody, %Foot, %Body, %RightBracket]
 
 
 func set_step(value: Step):
