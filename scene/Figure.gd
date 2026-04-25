@@ -156,8 +156,9 @@ func align_steps():
 				and (i == steps.size() - 1 or not steps[i + 1].get_node("%LeftBracket").has_data())
 	
 	# show / hide parts
-	var parts = ["%UpperBody", "%Foot", "%Body"]
-	var show_parts = [false, false, false]
+	var parts = ["%LeftHand", "%RightHand", "%UpperBody", "%Foot", "%Body"]
+	var show_parts: Array[bool]
+	show_parts.resize(parts.size())
 	for row in rows:
 		show_parts.fill(false)
 		for step in row:

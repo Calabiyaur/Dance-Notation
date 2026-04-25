@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://b3r0sos2a88ny" path="res://scene/LeftBracket.gd" id="2_mm5k1"]
 [ext_resource type="Script" uid="uid://ccxg4ji38egy4" path="res://scene/Foot.gd" id="2_wo7mw"]
 [ext_resource type="Script" uid="uid://bygfuaod1vk2w" path="res://scene/Body.gd" id="3_fkp8y"]
+[ext_resource type="Script" uid="uid://cu0b8ki42q6np" path="res://scene/LeftHand.gd" id="3_kg1vm"]
+[ext_resource type="Script" uid="uid://m2cohia0t8c6" path="res://scene/RightHand.gd" id="4_f13m2"]
 [ext_resource type="Script" uid="uid://b8c3nbmk4l57t" path="res://scene/RightBracket.gd" id="6_kg1vm"]
 
 [node name="Step" type="MarginContainer" unique_id=563231284]
@@ -44,6 +46,7 @@ custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.18039216, 0.18039216, 0.18039216, 0)
+script = ExtResource("3_kg1vm")
 
 [node name="RightHand" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=1886081237]
 unique_name_in_owner = true
@@ -52,6 +55,7 @@ custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.18039216, 0.18039216, 0.18039216, 0)
+script = ExtResource("4_f13m2")
 
 [node name="UpperBody" type="ColorRect" parent="HBoxContainer/VBoxContainer" unique_id=158993433]
 unique_name_in_owner = true
