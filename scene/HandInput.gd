@@ -44,4 +44,4 @@ func set_hand(hand: Hand):
 	if hand:
 		$Target.select(TARGET_VALUES.find(hand.target))
 		$Height.select(HEIGHT_VALUES.find(hand.height))
-		$Direction.select(DIRECTION_VALUES.find(hand.direction, 1) if hand.length > 0 else -1)
+		$Direction.select(DIRECTION_VALUES.find(hand.direction, 1) if hand.length > 0 else 0)

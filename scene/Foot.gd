@@ -85,4 +85,4 @@ func draw_duration():
 	
 	for i in xs.size():
 		var c = center + Vector2(xs[i], 0) * SCALE
-		draw_circle(c, LINE_WIDTH - 0.5, COLOR, filled[i], LINE_WIDTH * 0.25, true)
+		draw_circle(c, LINE_WIDTH - 0.5, COLOR, filled[i], -1.0 if filled[i] else LINE_WIDTH * 0.25, true)
