@@ -5,7 +5,7 @@ func _draw() -> void:
 	super._draw()
 	
 	if step.right_hand:
-		draw_hand(step.right_hand, true)
+		draw_hand(step.right_hand, false)
 
 
 func has_data() -> bool:

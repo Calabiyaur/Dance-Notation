@@ -1,24 +1,22 @@
-[gd_scene format=3 uid="uid://bn7w3wby0i2lw"]
+[gd_scene format=3 uid="uid://bbmgdhmxxr5rx"]
 
-[ext_resource type="Script" uid="uid://dy78hgv5ffgi1" path="res://scene/FootInput.gd" id="1_0u76j"]
+[ext_resource type="Script" uid="uid://j6fgleenvuga" path="res://scene/HandInput.gd" id="1_eno72"]
 
-[node name="FootInput" type="GridContainer" unique_id=1416200981]
+[node name="HandInput" type="GridContainer" unique_id=1416200981]
 columns = 2
-script = ExtResource("1_0u76j")
+script = ExtResource("1_eno72")
 
 [node name="Length" type="OptionButton" parent="." unique_id=2055162654]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 2
-item_count = 4
-popup/item_0/text = "Am Platz"
+item_count = 3
+popup/item_0/text = "Am Körper"
 popup/item_0/id = 0
-popup/item_1/text = "Kurzer Schritt"
+popup/item_1/text = "Kurzer Arm"
 popup/item_1/id = 1
-popup/item_2/text = "Ganzer Schritt"
+popup/item_2/text = "Langer Arm"
 popup/item_2/id = 2
-popup/item_3/text = "Langer Schritt"
-popup/item_3/id = 3
 
 [node name="Direction" type="OptionButton" parent="." unique_id=1390242664]
 layout_mode = 2

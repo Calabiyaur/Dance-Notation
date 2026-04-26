@@ -9,6 +9,16 @@ signal data_changed
 func _ready() -> void:
 	visible = step != null
 	
+	%LeftHandActive.toggled.connect(func(value: bool):
+		step.left_hand = Hand.new() if value else null
+		%LeftHandInput.set_hand(step.left_hand)
+		data_changed.emit()
+	)
+	%RightHandActive.toggled.connect(func(value: bool):
+		step.right_hand = Hand.new() if value else null
+		%RightHandInput.set_hand(step.right_hand)
+		data_changed.emit()
+	)
 	%UpperBodyActive.toggled.connect(func(value: bool):
 		step.upper_body_rotation = TAU * 0.125 if value else 0.0
 		%UpperBodyInput.set_step(step)
@@ -34,6 +44,8 @@ func _ready() -> void:
 	
 	%PreconditionInput.data_changed.connect(func(): data_changed.emit())
 	%DurationInput.data_changed.connect(func(): data_changed.emit())
+	%LeftHandInput.data_changed.connect(func(): data_changed.emit())
+	%RightHandInput.data_changed.connect(func(): data_changed.emit())
 	%UpperBodyInput.data_changed.connect(func(): data_changed.emit())
 	%LeftFootInput.data_changed.connect(func(): data_changed.emit())
 	%RightFootInput.data_changed.connect(func(): data_changed.emit())
@@ -46,6 +58,8 @@ func set_step(step: Step):
 	if not step:
 		return
 	
+	%LeftHandActive.set_pressed_no_signal(step.left_hand != null)
+	%RightHandActive.set_pressed_no_signal(step.right_hand != null)
 	%UpperBodyActive.set_pressed_no_signal(step.upper_body_rotation != 0)
 	%LeftFootActive.set_pressed_no_signal(step.left_foot != null)
 	%RightFootActive.set_pressed_no_signal(step.right_foot != null)
@@ -56,6 +70,8 @@ func set_step(step: Step):
 	
 	%PreconditionInput.set_data(step)
 	%DurationInput.set_data(step)
+	%LeftHandInput.set_hand(step.left_hand)
+	%RightHandInput.set_hand(step.right_hand)
 	%UpperBodyInput.set_step(step)
 	%LeftFootInput.set_foot(step.left_foot)
 	%RightFootInput.set_foot(step.right_foot)
