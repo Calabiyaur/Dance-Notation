@@ -37,7 +37,7 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="DurationLabel" type="Label" parent="MarginContainer/MarginContainer/GridContainer" unique_id=2010113378]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 text = "Schläge"
 
