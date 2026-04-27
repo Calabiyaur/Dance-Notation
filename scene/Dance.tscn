@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ckneisan35l5w"]
 
 [ext_resource type="Script" uid="uid://c7wu4gq27yeh5" path="res://scene/Dance.gd" id="1_p62nt"]
+[ext_resource type="PackedScene" uid="uid://c75l77ojy6jkl" path="res://scene/Figures.tscn" id="2_gjkul"]
+[ext_resource type="PackedScene" uid="uid://b62rieexoo6hw" path="res://scene/Music.tscn" id="3_xi8dc"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_p62nt"]
 device = -1
@@ -8,6 +10,8 @@ keycode = 4194305
 
 [sub_resource type="Shortcut" id="Shortcut_jxx7j"]
 events = [SubResource("InputEventKey_p62nt")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjkul"]
 
 [node name="Dance" type="MarginContainer" unique_id=1928055795]
 anchors_preset = 15
@@ -43,74 +47,39 @@ text = "<Tanz>"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Categories" type="VBoxContainer" parent="VBoxContainer" unique_id=1267574252]
+[node name="Edit" type="Button" parent="VBoxContainer/Header" unique_id=789192603]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+toggle_mode = true
+text = "Bearbeiten"
+
+[node name="Tabs" type="TabContainer" parent="VBoxContainer" unique_id=1608069379]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gjkul")
+current_tab = 2
+tab_0/title = "Figuren"
+tab_1/title = "Choreographien"
+tab_1/disabled = true
+tab_2/title = "Musik"
 
-[node name="History" type="Button" parent="VBoxContainer/Categories" unique_id=168856300]
-custom_minimum_size = Vector2(0, 40)
+[node name="Figures" parent="VBoxContainer/Tabs" unique_id=1345119068 instance=ExtResource("2_gjkul")]
+visible = false
 layout_mode = 2
-text = "Geschichte"
+metadata/_tab_index = 0
+metadata/_tab_name = "Figuren"
 
-[node name="Music" type="Button" parent="VBoxContainer/Categories" unique_id=1321839985]
-custom_minimum_size = Vector2(0, 40)
+[node name="Control" type="Control" parent="VBoxContainer/Tabs" unique_id=1274222618]
+visible = false
 layout_mode = 2
-text = "Musik"
+metadata/_tab_index = 1
+metadata/_tab_name = "Choreographien"
 
-[node name="Posture" type="Button" parent="VBoxContainer/Categories" unique_id=1160767784]
-custom_minimum_size = Vector2(0, 40)
+[node name="Music" parent="VBoxContainer/Tabs" unique_id=1811146057 instance=ExtResource("3_xi8dc")]
 layout_mode = 2
-text = "Haltung"
-
-[node name="Figures" type="Button" parent="VBoxContainer/Categories" unique_id=1281025468]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Figuren"
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Categories/Figures" unique_id=1865174364]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -15.5
-offset_right = 2.0
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_right = 16
-
-[node name="FigureCount" type="Label" parent="VBoxContainer/Categories/Figures/MarginContainer" unique_id=1028195074]
-unique_name_in_owner = true
-layout_mode = 2
-text = "8"
-horizontal_alignment = 1
-
-[node name="Choreographies" type="Button" parent="VBoxContainer/Categories" unique_id=1743050525]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-disabled = true
-text = "Choreographien"
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Categories/Choreographies" unique_id=1805150161]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -15.5
-offset_right = 2.0
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_right = 16
-
-[node name="ChoreoCount" type="Label" parent="VBoxContainer/Categories/Choreographies/MarginContainer" unique_id=1018825305]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-horizontal_alignment = 1
+metadata/_tab_index = 2
+metadata/_tab_name = "Musik"

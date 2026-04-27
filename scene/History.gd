@@ -9,11 +9,6 @@ func _ready() -> void:
 		go_back()
 	)
 	%Title.text = "Geschichte - " + dance.name
-	%Edit.set_pressed_no_signal(State.edit)
-	%Edit.toggled.connect(func(value: bool):
-		State.edit = value
-		update_edit_state()
-	)
 	
 	%OriginInput.text = dance.history.origin
 	%OriginInput.text_changed.connect(func(text):
@@ -27,6 +22,7 @@ func _ready() -> void:
 		Data.save()
 	)
 	
+	State.edit_changed.connect(update_edit_state)
 	update_edit_state()
 
 

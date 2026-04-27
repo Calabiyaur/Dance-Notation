@@ -47,7 +47,7 @@ func _notification(what):
 
 
 func go_back():
-	SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
+	SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
 
 
 func add_step(bistep: BiStep):

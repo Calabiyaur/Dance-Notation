@@ -7,19 +7,15 @@ var dance: Dance
 func _ready() -> void:
 	%Back.pressed.connect(func(): go_back())
 	%Title.text = dance.name
-	%FigureCount.text = str(dance.figures.size())
-	%Categories/History.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/History.tscn", func(scene): scene.set_dance(dance))
+	%Edit.set_pressed_no_signal(State.edit)
+	%Edit.toggled.connect(func(value: bool):
+		State.edit = value
+		update_edit_state()
 	)
-	%Categories/Music.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Music.tscn", func(scene): scene.set_dance(dance))
-	)
-	%Categories/Posture.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Posture.tscn", func(scene): scene.set_dance(dance))
-	)
-	%Categories/Figures.pressed.connect(func():
-		SceneSwitcher.switch_to("res://scene/Figures.tscn", func(scene): scene.set_dance(dance))
-	)
+	
+	update_edit_state()
+	
+	#%Tabs.set_tab_title(0, "Figuren (" + str(dance.figures.size()) + ")")
 
 
 func _notification(what):
@@ -31,5 +27,11 @@ func go_back():
 	SceneSwitcher.switch_to("res://scene/App.tscn")
 
 
+func update_edit_state():
+	%Edit.text = "Ansehen" if State.edit else "Bearbeiten"
+
+
 func set_dance(dance: Dance):
 	self.dance = dance
+	%Tabs/Figures.set_dance(dance)
+	%Tabs/Music.set_dance(dance)

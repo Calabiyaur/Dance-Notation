@@ -1,14 +1,10 @@
-extends MarginContainer
+extends VBoxContainer
 
 
 var dance: Dance
 
 
 func _ready() -> void:
-	%Back.pressed.connect(func():
-		go_back()
-	)
-	%Title.text = dance.name + " - Figuren"
 	%Add.pressed.connect(open_create_figure_dialog)
 	
 	dance.figures.sort_custom(func(a, b): return a.name < b.name)
@@ -16,21 +12,13 @@ func _ready() -> void:
 		add_figure_button(figure)
 
 
-func _notification(what):
-	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		go_back()
-
-
-func go_back():
-	SceneSwitcher.switch_to("res://scene/Dance.tscn", func(scene): scene.set_dance(dance))
-
-
 func add_figure_button(figure: Figure) -> Button:
 	var button = preload("res://scene/FigureButton.tscn").instantiate()
 	button.set_dance(dance)
 	button.set_figure(figure)
 	button.delete.connect(delete_figure.bind(button))
-	%Figures.add_child(button)
+	add_child(button)
+	%Add.move_to_front()
 	return button
 
 
@@ -61,7 +49,7 @@ func open_create_figure_dialog():
 
 
 func delete_figure(button: Button):
-	%Figures.remove_child(button)
+	remove_child(button)
 	dance.figures.erase(button.figure)
 	Data.save()
 

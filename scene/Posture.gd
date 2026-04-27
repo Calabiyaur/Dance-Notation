@@ -9,11 +9,6 @@ func _ready() -> void:
 		go_back()
 	)
 	%Title.text = "Haltung - " + dance.name
-	%Edit.set_pressed_no_signal(State.edit)
-	%Edit.toggled.connect(func(value: bool):
-		State.edit = value
-		update_edit_state()
-	)
 	
 	%TechniqueInput.text = dance.posture.technique
 	%TechniqueInput.text_changed.connect(func(text):
@@ -27,6 +22,7 @@ func _ready() -> void:
 		Data.save()
 	)
 	
+	State.edit_changed.connect(update_edit_state)
 	update_edit_state()
 
 
@@ -40,7 +36,6 @@ func go_back():
 
 
 func update_edit_state():
-	%Edit.text = "Ansehen" if State.edit else "Bearbeiten"
 	%TechniqueInput.editable = State.edit
 	%Text.editable = State.edit
 
