@@ -7,12 +7,10 @@ var dance: Dance
 func _ready() -> void:
 	%Back.pressed.connect(func(): go_back())
 	%Title.text = dance.name
-	%Edit.set_pressed_no_signal(State.edit)
-	%Edit.toggled.connect(func(value: bool):
-		State.edit = value
-		update_edit_state()
-	)
 	
+	%Edit.set_pressed_no_signal(State.edit)
+	%Edit.toggled.connect(State.set_edit)
+	State.edit_changed.connect(update_edit_state)
 	update_edit_state()
 	
 	#%Tabs.set_tab_title(0, "Figuren (" + str(dance.figures.size()) + ")")
@@ -35,3 +33,5 @@ func set_dance(dance: Dance):
 	self.dance = dance
 	%Tabs/Figures.set_dance(dance)
 	%Tabs/Music.set_dance(dance)
+	%Tabs/Posture.set_dance(dance)
+	%Tabs/History.set_dance(dance)

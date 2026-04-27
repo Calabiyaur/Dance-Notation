@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends ScrollContainer
 
 
 var dance: Dance
@@ -17,7 +17,7 @@ func add_figure_button(figure: Figure) -> Button:
 	button.set_dance(dance)
 	button.set_figure(figure)
 	button.delete.connect(delete_figure.bind(button))
-	add_child(button)
+	%Buttons.add_child(button)
 	%Add.move_to_front()
 	return button
 
@@ -38,7 +38,7 @@ func open_create_figure_dialog():
 		var figure = Figure.new()
 		figure.name = line.text
 		dance.figures.append(figure)
-		var button = add_figure_button(figure)
+		add_figure_button(figure)
 		Data.save()
 	)
 	
@@ -49,7 +49,7 @@ func open_create_figure_dialog():
 
 
 func delete_figure(button: Button):
-	remove_child(button)
+	%Buttons.remove_child(button)
 	dance.figures.erase(button.figure)
 	Data.save()
 

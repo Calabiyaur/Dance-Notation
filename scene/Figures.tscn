@@ -2,15 +2,23 @@
 
 [ext_resource type="Script" uid="uid://uno5x1bo4q4o" path="res://scene/Figures.gd" id="1_s54bi"]
 
-[node name="Figures" type="VBoxContainer" unique_id=22911497]
+[node name="Figures" type="ScrollContainer" unique_id=958881095]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_s54bi")
 
-[node name="Add" type="Button" parent="." unique_id=2111266765]
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=22911497]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Add" type="Button" parent="Buttons" unique_id=2111266765]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2

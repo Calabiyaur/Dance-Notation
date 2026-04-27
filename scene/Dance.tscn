@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c7wu4gq27yeh5" path="res://scene/Dance.gd" id="1_p62nt"]
 [ext_resource type="PackedScene" uid="uid://c75l77ojy6jkl" path="res://scene/Figures.tscn" id="2_gjkul"]
 [ext_resource type="PackedScene" uid="uid://b62rieexoo6hw" path="res://scene/Music.tscn" id="3_xi8dc"]
+[ext_resource type="PackedScene" uid="uid://bse6fe0niu4h5" path="res://scene/Posture.tscn" id="4_f4ld5"]
+[ext_resource type="PackedScene" uid="uid://2qmr3ldflovy" path="res://scene/History.tscn" id="5_nu22d"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_p62nt"]
 device = -1
@@ -12,6 +14,9 @@ keycode = 4194305
 events = [SubResource("InputEventKey_p62nt")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjkul"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nu22d"]
+content_margin_bottom = 4.0
 
 [node name="Dance" type="MarginContainer" unique_id=1928055795]
 anchors_preset = 15
@@ -61,14 +66,17 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gjkul")
-current_tab = 2
+theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_nu22d")
+tab_alignment = 1
+current_tab = 0
 tab_0/title = "Figuren"
 tab_1/title = "Choreographien"
 tab_1/disabled = true
 tab_2/title = "Musik"
+tab_3/title = "Haltung"
+tab_4/title = "Geschichte"
 
 [node name="Figures" parent="VBoxContainer/Tabs" unique_id=1345119068 instance=ExtResource("2_gjkul")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = "Figuren"
@@ -80,6 +88,19 @@ metadata/_tab_index = 1
 metadata/_tab_name = "Choreographien"
 
 [node name="Music" parent="VBoxContainer/Tabs" unique_id=1811146057 instance=ExtResource("3_xi8dc")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = "Musik"
+
+[node name="Posture" parent="VBoxContainer/Tabs" unique_id=1179969714 instance=ExtResource("4_f4ld5")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "Haltung"
+
+[node name="History" parent="VBoxContainer/Tabs" unique_id=154836216 instance=ExtResource("5_nu22d")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+metadata/_tab_name = "Geschichte"

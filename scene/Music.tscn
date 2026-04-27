@@ -2,54 +2,55 @@
 
 [ext_resource type="Script" uid="uid://cytdxr351v4jf" path="res://scene/Music.gd" id="1_dhmm1"]
 
-[node name="Music" type="MarginContainer" unique_id=1811146057]
+[node name="Music" type="VBoxContainer" unique_id=338423628]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
 script = ExtResource("1_dhmm1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=338423628]
+[node name="Time" type="HBoxContainer" parent="." unique_id=1874536752]
 layout_mode = 2
+theme_override_constants/separation = 16
 
-[node name="Time" type="HBoxContainer" parent="VBoxContainer" unique_id=1874536752]
+[node name="TimeLabel" type="Label" parent="Time" unique_id=1473685476]
 layout_mode = 2
-
-[node name="TimeLabel" type="Label" parent="VBoxContainer/Time" unique_id=1473685476]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
+size_flags_horizontal = 10
 text = "Taktart"
+horizontal_alignment = 2
 
-[node name="TimeInput" type="LineEdit" parent="VBoxContainer/Time" unique_id=1335203346]
+[node name="TimeInput" type="LineEdit" parent="Time" unique_id=1335203346]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 2
+expand_to_text_length = true
 
-[node name="Bpm" type="HBoxContainer" parent="VBoxContainer" unique_id=1502981979]
+[node name="Bpm" type="HBoxContainer" parent="." unique_id=1502981979]
 layout_mode = 2
+theme_override_constants/separation = 16
 
-[node name="BpmLabel" type="Label" parent="VBoxContainer/Bpm" unique_id=1625340861]
-custom_minimum_size = Vector2(120, 0)
+[node name="BpmLabel" type="Label" parent="Bpm" unique_id=1625340861]
 layout_mode = 2
+size_flags_horizontal = 10
 text = "Tempo"
+horizontal_alignment = 2
 
-[node name="BpmInput" type="LineEdit" parent="VBoxContainer/Bpm" unique_id=401649685]
+[node name="HBoxContainer" type="HBoxContainer" parent="Bpm" unique_id=1651107572]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="BpmInput" type="LineEdit" parent="Bpm/HBoxContainer" unique_id=401649685]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 2
+expand_to_text_length = true
 
-[node name="BpmLabelSuffix" type="Label" parent="VBoxContainer/Bpm" unique_id=1721778676]
+[node name="BpmLabelSuffix" type="Label" parent="Bpm/HBoxContainer" unique_id=1721778676]
 layout_mode = 2
-text = "Schläge pro Minute"
+text = "BPM"
 
-[node name="Text" type="TextEdit" parent="VBoxContainer" unique_id=1252914256]
+[node name="Text" type="TextEdit" parent="." unique_id=1252914256]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

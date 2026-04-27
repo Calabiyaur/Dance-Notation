@@ -1,4 +1,4 @@
-extends MarginContainer
+extends VBoxContainer
 
 
 var dance: Dance
