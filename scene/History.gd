@@ -11,6 +11,12 @@ func _ready() -> void:
 		Data.save()
 	)
 	
+	%YearInput.text = dance.history.year
+	%YearInput.text_changed.connect(func(text):
+		dance.history.year = text
+		Data.save()
+	)
+	
 	%Text.text = dance.history.text
 	%Text.text_changed.connect(func():
 		dance.history.text = %Text.text
@@ -23,6 +29,7 @@ func _ready() -> void:
 
 func update_edit_state():
 	%OriginInput.editable = State.edit
+	%YearInput.editable = State.edit
 	%Text.editable = State.edit
 
 

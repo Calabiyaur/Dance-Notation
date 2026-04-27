@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtheera3oj6ng" path="res://scene/Posture.gd" id="1_t1dl0"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=338423628]
+[node name="Posture" type="VBoxContainer" unique_id=338423628]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

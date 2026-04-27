@@ -8,6 +8,9 @@ func _ready() -> void:
 	%Back.pressed.connect(func(): go_back())
 	%Title.text = dance.name
 	
+	%Tabs.current_tab = State.dance_tab_index
+	%Tabs.tab_changed.connect(State.set_dance_tab_index)
+	
 	%Edit.set_pressed_no_signal(State.edit)
 	%Edit.toggled.connect(State.set_edit)
 	State.edit_changed.connect(update_edit_state)
